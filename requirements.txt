@@ -18,6 +18,10 @@ Ideas:
 - Educational Maths game for kids where they go through and learn about basic stuff, by entering different rooms. In each room there are questions that they have to answer.
     - I.e. It will be different rooms depending on the subject. To move onto the next room they must pick the correct answer, with a timer ?
 
+Resources:
 
-
+- GUI
+- https://realpython.com/python-gui-tkinter/
+- https://www.codingal.com/coding-for-kids/blog/build-gui-games-in-python/
+- https://docs.python.org/3/library/tkinter.html#a-hello-world-program
 """
