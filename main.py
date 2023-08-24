@@ -1,6 +1,6 @@
+import tkinter as tk
 from tkinter import *
 from tkmacosx import Button
-import tkinter as tk
 
 window = tk.Tk()
 window.title("Test")
@@ -14,10 +14,10 @@ label = tk.Label(
     )
 label.pack() # adds label widget to window
 
-button = tk.Button( # https://pypi.org/project/ttwidgets/
+button = Button( # https://pypi.org/project/ttwidgets/
     text="Click me!",
-    width=25, 
-    height=5,
+    width=200, 
+    height=500,
     background="blue",
     foreground="red"
 ) 
