@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import *
-from tkmacosx import Button
+from tkmacosx import Button # https://pypi.org/project/tkmacosx/
 
 window = tk.Tk()
 window.title("Test")
@@ -14,7 +14,8 @@ label = tk.Label(
     )
 label.pack() # adds label widget to window
 
-button = Button( # https://pypi.org/project/ttwidgets/
+# https://pypi.org/project/tkmacosx/
+button = Button(
     text="Click me!",
     width=200, 
     height=500,
