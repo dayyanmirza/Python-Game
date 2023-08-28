@@ -19,13 +19,8 @@ Home:
 - You decide its time to go, and never return. Which is simple as you don't have family that's alive anyway. 
 
 Phonebooth:
-- You leave your house and go to the phonebooth outside of the city to make sure noones listening. You call them up using a code only they know and then they say an anagram of a country to come to.
+- You leave your house and go to the phonebooth outside of the city to make sure no one's listening. You call them up using a code only they know and then they say an anagram of a country to come to.
 - You write the leters down and it says Peru. 
-- You have to change your indentity to leave. So you meet up with a guy name Fred. 
-- He's a guy you know from the CIA but you trust him. 
-- You go there realise he was a phoney and then you decide to teach him a lesson. 
-- Leaving there, you decide you must leave the area. 
-- How? 
 
 Plane:
 - You know another guy and he actually helps you gives you a fake passport and even a small plane that he will take you to peru in but he can't at the momnet and requires some compensation.
@@ -70,39 +65,108 @@ Classes:
     * Peru
 
 """
+from random import randint
+from textwrap import dedent
 
 class Scene(object):
 
     def enter(self): # make a generic thing here that can be inherited by all scenes. i.e. prints out the scene or location name.
-        pass
+        print("This scene is not yet configured.")
+        print("Sublass it and implement enter.")
 
 class Engine(object):
 
     def __init__(self, scene_map):
-        pass
+        self.scene_map = scene_map
 
     def play(self):
         pass
 
 class Death(Scene):
 
+    quips = [
+        "Your little cousin can do better than that cmon.",
+        "You're not even fighting anyone, how are you losing?!",
+        "Game over. You lost. Get over it. Try again."
+    ]
+
     def enter(self):
-        pass
+        print(Death.quips[randint(0, len(self.quips)-1)])
+        exit(1)
 
 class Home(Scene):
 
     def enter(self):
-        pass
+        print(dedent("""
+            You're going about your day, when one day a bottle is thrown at your window.
+            The window smashes and the bottle has a note, the note says, 'We know that you know'.
+            It's the CIA. You know it.
+            After years of working in close conjunction with them they're afraid your recent tirades make you a weak link.
+            They might wnat to get rid of this problem once and for all.
+
+            You have to make a decision 1) leave and never come back, 2) act like nothing happened  
+            """))
+
+        action = int(input("> "))
+
+        if action == 1:
+            print(dedent("""
+                You decide its time to go, and never return.
+                Good choice. You need to talk to someone but your home is a liablity.
+                """))
+            return 'phonebooth'
+        
+
 
 class Phonebooth(Scene):
 
     def enter(self):
-        pass
+        print(dedent("""
+            You leave your house and go to the phonebooth outside of the city to make sure no one's listening.
+            You call them up using a code only they know and then they say an anagram of a country to come to.\n
+            The country is urep, what could the country be, 1) Reup, 2) Peru", \n 
+            """))
+        
+        action = int(input("> "))
+
+        if action == 1:
+            print(dedent("""
+                You decide to go to lookup Reup which only shows you marketing agencies. Ok well thats odd he must work in one. 
+                You go there and realise very quickly no one has any idea about helping you escape. 
+                So you just decide to go back, but on your way back home your stopped and searched and taken into a van. 
+                
+                But they don't look like police. They caught onto you. 
+                """))
+            return 'death'
+        elif action == 2:
+            print(dedent("""
+                That wasn't too hard. Now you know the location, you just need to make a call to a guy names Fred. 
+                
+                He has a plane and can give you a fake passport to help you not have any trouble w/ the authorities in Peru.
+                """))
+            return 'plane'
+        else:
+            print("That's not an option.\n")
+            return 'home'
+        
 
 class Plane(Scene):
 
     def enter(self):
-        pass
+        print(dedent("""
+            You know another guy, called Fred, and he actually will help give you a fake passport and even a small plane that he will take you to Peru in but he can't at the moment he requires a favour.
+            It's not money, he has a some beef to settle with another man. 
+            
+            He stole from him. But luckily Fred has the guys laptop.
+            It's an online transaction, though, you've done this beofre multiple times and it's for a good cause so you help him. 
+            
+            In order to do this you have to guess the other guys laptop password, in order to gain access to his computer. 
+            
+            Password Hint: The guy your hacking is a CIA agent from LA. It's 12 characters. It needs to have a number and a special character.
+            """))
+
+        password = "CIAAgentLA1!"
+
 
 class Ecuador(Scene):
 
