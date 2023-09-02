@@ -139,11 +139,14 @@ class Home(Scene):
                 Good choice. You need to talk to someone but your home is a liablity.
                 """))
             return 'phone_booth'
-        if action == 2:
+        elif action == 2:
             print(dedent("""
                 Why would you do that? Clearly you should have done something.
                 """))
             return 'death'
+        else:
+            print("That's not an option.\n")
+            return 'home'
         
 
 class PhoneBooth(Scene):
